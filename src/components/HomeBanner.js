@@ -1,6 +1,14 @@
 import { useContext } from "react";
 import { PortfolioContext } from "../Context";
+import {
+  trackDownloadCV,
+  trackLinkedIn,
+  trackWhatsApp,
+  trackEmail,
+  trackRoamStudio,
+} from "../utils/analytics";
 import TypingAnimation from "./TypingAnimation";
+
 
 const HomeBanner = () => {
   const { nav, changeNav } = useContext(PortfolioContext);
@@ -62,6 +70,8 @@ const HomeBanner = () => {
                         className="btn btn-outline"
                         target="_blank"
                         rel="noopener noreferrer"
+                        download
+                        onClick={trackDownloadCV}
                       >
                         Descargar CV
                       </a>
@@ -72,22 +82,24 @@ const HomeBanner = () => {
                   <ul className="social-icons">
                     <li>
                       <a
-                        href="mailto:dg.antonellagatti@gmail.com"
-                        aria-label="Enviar email"
-                      >
-                        <i className="fas fa-envelope" />
-                      </a>
+                      href="mailto:dg.antonellagatti@gmail.com"
+                      aria-label="Enviar email"
+                      onClick={trackEmail}
+                    >
+                      <i className="fas fa-envelope" />
+                    </a>
                     </li>
 
                     <li>
                       <a
-                        href="https://linkedin.com/in/antonnellagatti/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="LinkedIn"
-                      >
-                        <i className="fab fa-linkedin-in" />
-                      </a>
+                      href="https://linkedin.com/in/antonnellagatti/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn"
+                      onClick={trackLinkedIn}
+                    >
+                      <i className="fab fa-linkedin-in" />
+                    </a>
                     </li>
 
                     <li>
@@ -96,21 +108,23 @@ const HomeBanner = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="ROAM Studio"
+                        onClick={trackRoamStudio}
                       >
                         <i className="fas fa-globe" />
                       </a>
                     </li>
 
-                    <li>
-                      <a
-                        href="https://wa.me/5493512540056?text=Hola%20Annto%2C%20vi%20tu%20portfolio%20y%20me%20gustaría%20hacerte%20una%20consulta."
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="WhatsApp"
-                      >
-                        <i className="fab fa-whatsapp" />
-                      </a>
-                    </li>
+                   <li>
+                    <a
+                      href="https://wa.me/5493512540056?text=Hola%20Annto%2C%20vi%20tu%20portfolio%20y%20me%20gustaría%20hacerte%20una%20consulta."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="WhatsApp"
+                      onClick={trackWhatsApp}
+                    >
+                      <i className="fab fa-whatsapp" />
+                    </a>
+                  </li>
                   </ul>
                 </div>
               </div>
