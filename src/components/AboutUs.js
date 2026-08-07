@@ -3,9 +3,8 @@ import SkillsFlipCards from "./SkillsFlipCards";
 
 
 const AboutUs = () => {
-  const { changeNav } = useContext(PortfolioContext);
-
   return (
+
     <SectionContainer
       name="about"
       extraClass="about-section"
