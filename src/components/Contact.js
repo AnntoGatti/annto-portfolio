@@ -189,8 +189,8 @@ const Contact = () => {
             <h6 className="dark-color font-alt">Email</h6>
 
             <p>
-              <a href="mailto:TU-EMAIL@DOMINIO.COM">
-                TU-EMAIL@DOMINIO.COM
+              <a href="mailto:dg.antonellagatti@gmail.com">
+                dg.antonellagatti@gmail.com
               </a>
             </p>
           </div>

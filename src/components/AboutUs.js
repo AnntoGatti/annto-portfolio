@@ -1,7 +1,10 @@
 import SectionContainer from "./SectionContainer";
 import SkillsFlipCards from "./SkillsFlipCards";
 
+
 const AboutUs = () => {
+  const { changeNav } = useContext(PortfolioContext);
+
   return (
     <SectionContainer
       name="about"
@@ -132,21 +135,6 @@ const AboutUs = () => {
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="btn-bar">
-            <p className="m-0px m-15px-b">
-              Podés conocer mi experiencia completa en mi CV.
-            </p>
-
-            <a
-              href="/static/docs/antonella-gatti-cv.pdf"
-              className="btn btn-theme"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ver CV completo
-            </a>
           </div>
         </div>
       </div>

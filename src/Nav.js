@@ -50,51 +50,51 @@ const Nav = () => {
   }, [toggle, nav, activeIndex]);
 
   return (
-    <nav
-      className={`pages-nav ${toggle ? "pages-nav--open" : ""}`}
-      aria-label="Navegación principal"
-    >
-      <div className="pages-nav__item">
-        <button
-          type="button"
-          className="link link--page"
-          onClick={() => changeNav("services", false)}
-        >
+  <nav
+    className={`pages-nav ${toggle ? "pages-nav--open" : ""}`}
+    aria-label="Navegación principal"
+  >
+    <div className="pages-nav__item">
+      <button
+        type="button"
+        className="link link--page"
+        onClick={() => changeNav("services", false)}
+      >
         Especialidades
-        </button>
-      </div>
+      </button>
+    </div>
 
-      <div className="pages-nav__item">
-        <button
-          type="button"
-          className="link link--page"
-          onClick={() => changeNav("about", false)}
-        >
-          Sobre mí
-        </button>
-      </div>
+    <div className="pages-nav__item">
+      <button
+        type="button"
+        className="link link--page"
+        onClick={() => changeNav("about", false)}
+      >
+        Sobre mí
+      </button>
+    </div>
 
-      <div className="pages-nav__item">
-        <button
-          type="button"
-          className="link link--page"
-          onClick={() => changeNav("portfolio", false)}
-        >
-          Portfolio
-        </button>
-      </div>
+    <div className="pages-nav__item">
+      <button
+        type="button"
+        className="link link--page"
+        onClick={() => changeNav("portfolio", false)}
+      >
+        Portfolio
+      </button>
+    </div>
 
-      <div className="pages-nav__item">
-        <button
-          type="button"
-          className="link link--page"
-          onClick={() => changeNav("contact", false)}
-        >
-          Charlemos
-        </button>
-      </div>
-    </nav>
-  );
+    <div className="pages-nav__item">
+      <button
+        type="button"
+        className="link link--page"
+        onClick={() => changeNav("contact", false)}
+      >
+        Charlemos
+      </button>
+    </div>
+  </nav>
+);
 };
 
 export default Nav;
