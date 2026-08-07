@@ -1035,10 +1035,10 @@ body.dark-body {
 }
 
 @media (max-width: 767px) {
-
   .skills-flip-section {
     margin-top: 45px;
     padding-top: 35px;
+    padding-bottom: 90px;
   }
 
   .skills-flip-grid {
@@ -1053,7 +1053,6 @@ body.dark-body {
   .skill-flip-back {
     padding: 22px;
   }
-
 }
 /*==============================
   Resume box
@@ -1349,6 +1348,11 @@ body.dark-body {
   }
 }
 @media (max-width: 640px) {
+
+  .portfolio-content {
+    padding-bottom: 100px;
+  }
+
   .portfolio-cols-3 .portfolio-item {
     width: 50%;
     padding: 8px;
