@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { PortfolioContext } from "../Context";
 import {
-  trackDownloadCV,
   trackLinkedIn,
   trackWhatsApp,
   trackEmail,
@@ -64,15 +63,7 @@ const HomeBanner = () => {
                       >
                         Ver Portfolio
                       </button>
-                        <a
-                          href="/static/docs/Antonella-Gatti-CV.pdf"
-                          className="btn btn-outline"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={trackDownloadCV}
-                        >
-                          Ver CV
-                        </a>
+                        
 
                     </div>
                   </div>
