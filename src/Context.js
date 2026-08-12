@@ -1,4 +1,11 @@
-import { createContext, useCallback, useReducer } from "react";
+import {
+  createContext,
+  useCallback,
+  useEffect,
+  useReducer,
+} from "react";
+
+import { useRouter } from "next/router";
 
 const PortfolioContext = createContext();
 
@@ -9,8 +16,18 @@ const type = {
 
 const { NAV, TOGGLE } = type;
 
+const getInitialNav = () => {
+  if (typeof window !== "undefined") {
+    if (window.location.pathname === "/portfolio") {
+      return "portfolio";
+    }
+  }
+
+  return "home";
+};
+
 const initialState = {
-  nav: "home",
+  nav: getInitialNav(),
   toggle: false,
 };
 
@@ -36,9 +53,32 @@ const reducer = (state, action) => {
 };
 
 const PortfolioState = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const router = useRouter();
 
-  const changeNav = useCallback((value, toggleValue) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  useEffect(() => {
+  if (!router.isReady) return;
+
+  if (router.pathname === "/portfolio") {
+    dispatch({
+      type: NAV,
+      payload: "portfolio",
+    });
+  } else {
+    dispatch({
+      type: NAV,
+      payload: "home",
+    });
+  }
+
+  dispatch({
+    type: TOGGLE,
+    payload: false,
+  });
+}, [router.isReady, router.pathname]);
+
+  const changeNav = useCallback(
+  (value, toggleValue) => {
     dispatch({
       type: NAV,
       payload: value,
@@ -48,7 +88,17 @@ const PortfolioState = ({ children }) => {
       type: TOGGLE,
       payload: toggleValue,
     });
-  }, []);
+
+    if (value === "portfolio") {
+      router.push("/portfolio");
+    }
+
+    if (value === "home") {
+      router.push("/");
+    }
+  },
+  [router]
+);
 
   const { nav, toggle } = state;
 
