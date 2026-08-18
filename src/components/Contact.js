@@ -64,6 +64,7 @@ const Contact = () => {
         },
         (err) => {
           console.error("Error al enviar el mensaje:", err);
+
           setSending(false);
           setError(true);
         }
@@ -75,11 +76,11 @@ const Contact = () => {
       name="contact"
       title="Charlemos"
       subTitle="¿TENÉS UN PROYECTO EN MENTE?"
-      leftImage="static/img/title-4.jpg"
-      leftImageTitle="Charlemos"
     >
       <div className="contact-intro">
-        <h3 className="dark-color">Contame qué necesitás</h3>
+        <h3 className="dark-color">
+          Contame qué necesitás
+        </h3>
 
         <p>
           Puede ser una marca, una web, contenido o una idea que todavía está
@@ -90,7 +91,10 @@ const Contact = () => {
       <div className="row">
         <div className="col-lg-12 m-30px-b sm-m-15px-b">
           <div className="contact-form">
-            <form className="contactform" onSubmit={onSubmit}>
+            <form
+              className="contactform"
+              onSubmit={onSubmit}
+            >
               <div className="row">
                 <div className="col-md-6">
                   <div className="form-group">
@@ -149,7 +153,9 @@ const Contact = () => {
                       type="submit"
                       disabled={sending}
                     >
-                      {sending ? "Enviando..." : "Enviar mensaje"}
+                      {sending
+                        ? "Enviando..."
+                        : "Enviar mensaje"}
                     </button>
                   </div>
 
@@ -176,9 +182,13 @@ const Contact = () => {
           <div className="contact-info">
             <i className="theme-color ti-location-pin" />
 
-            <h6 className="dark-color font-alt">Desde Córdoba</h6>
+            <h6 className="dark-color font-alt">
+              Desde Córdoba
+            </h6>
 
-            <p>Trabajo de manera remota con proyectos de Argentina y Latam.</p>
+            <p>
+              Trabajo de manera remota con proyectos de Argentina y Latam.
+            </p>
           </div>
         </div>
 
@@ -186,7 +196,9 @@ const Contact = () => {
           <div className="contact-info">
             <i className="theme-color ti-email" />
 
-            <h6 className="dark-color font-alt">Email</h6>
+            <h6 className="dark-color font-alt">
+              Email
+            </h6>
 
             <p>
               <a href="mailto:dg.antonellagatti@gmail.com">
@@ -200,7 +212,9 @@ const Contact = () => {
           <div className="contact-info">
             <i className="theme-color ti-link" />
 
-            <h6 className="dark-color font-alt">También podés encontrarme en</h6>
+            <h6 className="dark-color font-alt">
+              También podés encontrarme en
+            </h6>
 
             <p>
               <a

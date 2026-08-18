@@ -126,10 +126,12 @@ const PortfolioHead = () => {
             window.dataLayer.push(arguments);
           }
 
+          window.gtag = gtag;
+
           gtag("js", new Date());
 
           gtag("config", "G-DYXDZ2YZ3Q", {
-            page_path: window.location.pathname
+            send_page_view: false
           });
         `}
       </Script>

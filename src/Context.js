@@ -18,9 +18,11 @@ const { NAV, TOGGLE } = type;
 
 const getInitialNav = () => {
   if (typeof window !== "undefined") {
-    if (window.location.pathname === "/portfolio") {
-      return "portfolio";
-    }
+    const path = window.location.pathname;
+
+    if (path === "/portfolio") return "portfolio";
+    if (path === "/services") return "services";
+    if (path === "/contact") return "contact";
   }
 
   return "home";
@@ -56,49 +58,68 @@ const PortfolioState = ({ children }) => {
   const router = useRouter();
 
   const [state, dispatch] = useReducer(reducer, initialState);
+
   useEffect(() => {
-  if (!router.isReady) return;
+    if (!router.isReady) return;
 
-  if (router.pathname === "/portfolio") {
-    dispatch({
-      type: NAV,
-      payload: "portfolio",
-    });
-  } else {
-    dispatch({
-      type: NAV,
-      payload: "home",
-    });
-  }
-
-  dispatch({
-    type: TOGGLE,
-    payload: false,
-  });
-}, [router.isReady, router.pathname]);
-
-  const changeNav = useCallback(
-  (value, toggleValue) => {
-    dispatch({
-      type: NAV,
-      payload: value,
-    });
+    if (router.pathname === "/portfolio") {
+      dispatch({
+        type: NAV,
+        payload: "portfolio",
+      });
+    } else if (router.pathname === "/services") {
+      dispatch({
+        type: NAV,
+        payload: "services",
+      });
+    } else if (router.pathname === "/contact") {
+      dispatch({
+        type: NAV,
+        payload: "contact",
+      });
+    } else {
+      dispatch({
+        type: NAV,
+        payload: "home",
+      });
+    }
 
     dispatch({
       type: TOGGLE,
-      payload: toggleValue,
+      payload: false,
     });
+  }, [router.isReady, router.pathname]);
 
-    if (value === "portfolio") {
-      router.push("/portfolio");
-    }
+  const changeNav = useCallback(
+    (value, toggleValue) => {
+      dispatch({
+        type: NAV,
+        payload: value,
+      });
 
-    if (value === "home") {
-      router.push("/");
-    }
-  },
-  [router]
-);
+      dispatch({
+        type: TOGGLE,
+        payload: toggleValue,
+      });
+
+      if (value === "home") {
+        router.push("/");
+      }
+
+      if (value === "portfolio") {
+        router.push("/portfolio");
+      }
+
+      if (value === "services") {
+        router.push("/services");
+      }
+
+      if (value === "contact") {
+        router.push("/contact");
+      }
+    },
+    [router]
+  );
 
   const { nav, toggle } = state;
 
