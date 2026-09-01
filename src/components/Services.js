@@ -1,8 +1,6 @@
 import SectionContainer from "./SectionContainer";
 
 const Services = () => {
-  // Reemplazá las X por tu número, sin espacios ni signos.
-  // Ejemplo Argentina: 5493511234567
   const whatsappNumber = "5493512540056";
 
   const services = [
@@ -80,7 +78,6 @@ const Services = () => {
       extraClass="services-section"
       title="Servicios que ofrezco"
       subTitle="Especialidades"
-      leftImage="/static/img/title-2.jpg"
     >
       <div className="services-grid">
         {services.map((service) => (
@@ -104,7 +101,11 @@ const Services = () => {
 
             <div className="service-card__cta">
               <span>Consultar por este servicio</span>
-              <span className="service-card__arrow" aria-hidden="true">
+
+              <span
+                className="service-card__arrow"
+                aria-hidden="true"
+              >
                 →
               </span>
             </div>
@@ -121,7 +122,10 @@ const Services = () => {
 
         <div className="services-tools">
           {tools.map((tool) => (
-            <span className="service-tool" key={tool}>
+            <span
+              className="service-tool"
+              key={tool}
+            >
               {tool}
             </span>
           ))}

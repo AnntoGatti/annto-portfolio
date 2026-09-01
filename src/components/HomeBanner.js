@@ -11,6 +11,14 @@ import TypingAnimation from "./TypingAnimation";
 const HomeBanner = () => {
   const { nav, changeNav } = useContext(PortfolioContext);
 
+  const currentDate = new Date();
+
+  const currentMonth = currentDate
+    .toLocaleString("es-AR", { month: "long" })
+    .toUpperCase();
+
+  const currentYear = currentDate.getFullYear();
+
   const activePageClass = () =>
     nav === "home" ? "" : "page--inactive";
 
@@ -21,12 +29,12 @@ const HomeBanner = () => {
     >
       {/* Barra de disponibilidad */}
       <div className="availability-bar">
-        AGENDA ABIERTA · AGOSTO 2026
+        AGENDA ABIERTA · {currentMonth} {currentYear}
       </div>
 
       <div className="page-scroll">
         <div className="home-hero">
-
+          
           {/* Contenido principal */}
           <div className="home-hero__content">
 
